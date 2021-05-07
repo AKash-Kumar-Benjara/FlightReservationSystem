@@ -1,0 +1,18 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package com.company.frs;
+
+class Passenger$Contact {
+    String name;
+    String phoneNumber;
+    String emailId;
+
+    Passenger$Contact(String name, String phoneNumber, String emailId) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.emailId = emailId;
+    }
+}
