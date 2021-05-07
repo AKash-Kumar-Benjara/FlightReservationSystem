@@ -1,0 +1,128 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package com.company.frs;
+
+import java.time.LocalDateTime;
+
+public abstract class Ticket {
+    private String pnr;
+    private String to;
+    private String from;
+    private String departureDetails;
+    private String arrivalDetails;
+    private String seatNumber;
+    private boolean isCancelled;
+    private Passenger passenger;
+    private Flight flight;
+    private float ticketPrice;
+
+    public Ticket(String pnr, String to, String from, String departureDetails, String arrivalDetails, String seatNumber, boolean isCancelled, float ticketPrice, Passenger passenger, Flight flight) {
+        this.arrivalDetails = arrivalDetails;
+        this.departureDetails = departureDetails;
+        this.flight = flight;
+        this.from = from;
+        this.to = to;
+        this.isCancelled = isCancelled;
+        this.passenger = passenger;
+        this.pnr = pnr;
+        this.seatNumber = seatNumber;
+        this.ticketPrice = ticketPrice;
+    }
+
+    public String checkStatus() {
+        return this.isCancelled ? "Cancelled" : "Confirmed";
+    }
+
+    public void cancelTicket() {
+        this.isCancelled = true;
+    }
+
+    public int journeyDuration() {
+        LocalDateTime departureLocalDateTime = LocalDateTime.parse(this.departureDetails);
+        LocalDateTime arrivalLocalDateTime = LocalDateTime.parse(this.arrivalDetails);
+        return (arrivalLocalDateTime.getDayOfMonth() - departureLocalDateTime.getDayOfMonth()) * 24 + (arrivalLocalDateTime.getHour() - departureLocalDateTime.getHour());
+    }
+
+    public String getPnr() {
+        return this.pnr;
+    }
+
+    public void setPnr(String pnr) {
+        this.pnr = pnr;
+    }
+
+    public String getTo() {
+        return this.to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
+    public String getFrom() {
+        return this.from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getDepartureDetails() {
+        return this.departureDetails;
+    }
+
+    public void setDepartureDetails(String departureDetails) {
+        this.departureDetails = departureDetails;
+    }
+
+    public String getArrivalDetails() {
+        return this.arrivalDetails;
+    }
+
+    public void setArrivalDetails(String arrivalDetails) {
+        this.arrivalDetails = arrivalDetails;
+    }
+
+    public String getSeatNumber() {
+        return this.seatNumber;
+    }
+
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public boolean isCancelled() {
+        return this.isCancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        this.isCancelled = cancelled;
+    }
+
+    public Passenger getPassenger() {
+        return this.passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
+
+    public Flight getFlight() {
+        return this.flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public float getTicketPrice() {
+        return this.ticketPrice;
+    }
+
+    public void setTicketPrice(float ticketPrice) {
+        this.ticketPrice = ticketPrice;
+    }
+}
